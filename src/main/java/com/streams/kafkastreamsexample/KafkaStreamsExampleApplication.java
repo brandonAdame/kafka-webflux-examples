@@ -1,14 +1,18 @@
 package com.streams.kafkastreamsexample;
 
+import com.streams.kafkastreamsexample.pojo.Posts;
+import com.streams.kafkastreamsexample.service.CircuitService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.context.annotation.Bean;
+import reactor.core.publisher.Mono;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -57,6 +61,10 @@ public class KafkaStreamsExampleApplication {
 //        return input ->
 //                input.foreach((key, value) -> {
 //                    System.out.println("Key: " + key + " Value: " + value);
+//                    Mono<Posts> postsMono = circuitService.posts();
+//
+//                    log.info("Before subscribing to request");
+//                    postsMono.subscribe();
 //                });
 //    }
 }
